@@ -1,19 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { combineReducers } from "redux";
+import ReactDOM from "react-dom/client";
+
+// import ProductsProvider from "./context/products-context";
+import configStore from "./components/hooks-store/products-store";
 import { BrowserRouter } from "react-router-dom";
-import { legacy_createStore as createStore } from "redux";
 
 import "./index.css";
 import App from "./App";
-import productReducer from "./store/reducers/products";
 
-const rootReducer = combineReducers({
-  shop: productReducer,
-});
-
-const store = createStore(rootReducer);
+configStore();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+
+root.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+);
