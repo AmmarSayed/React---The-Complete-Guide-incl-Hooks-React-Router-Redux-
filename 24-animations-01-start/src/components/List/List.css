@@ -1,0 +1,68 @@
+.List {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 280px;
+}
+
+.ListItem {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #521751;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ListItem:hover,
+.ListItem:active {
+  background-color: #ccc;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  animation: addListItem 0.5s ease-in-out forwards;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  animation: removeListItem 0.5s ease-in-out forwards;
+}
+
+@keyframes addListItem {
+  0% {
+    opacity: 0;
+    transform: translateY(-50vh);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(90%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+}
+
+@keyframes removeListItem {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(90%) rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(100%, -100%) rotate(180deg);
+  }
+}
